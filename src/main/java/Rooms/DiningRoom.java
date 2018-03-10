@@ -6,4 +6,8 @@ public class DiningRoom extends Room {
         super(capacity);
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
 }

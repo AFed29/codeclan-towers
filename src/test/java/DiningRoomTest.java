@@ -47,4 +47,10 @@ public class DiningRoomTest {
         diningRoom.removeGuest(guest);
         assertEquals(0, diningRoom.guestCount());
     }
+
+    @Test
+
+    public void canGetRoomName() {
+        assertEquals("Blackbird", diningRoom.getName());
+    }
 }
