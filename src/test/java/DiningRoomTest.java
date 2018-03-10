@@ -49,7 +49,6 @@ public class DiningRoomTest {
     }
 
     @Test
-
     public void canGetRoomName() {
         assertEquals("Blackbird", diningRoom.getName());
     }
