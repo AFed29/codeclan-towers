@@ -31,4 +31,8 @@ public abstract class Room {
     public int guestCount() {
         return guests.size();
     }
+
+    public boolean isRoomFull() {
+        return (guests.size() == capacity);
+    }
 }

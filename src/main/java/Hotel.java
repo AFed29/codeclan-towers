@@ -1,3 +1,4 @@
+import Guest.Guest;
 import Rooms.Bedroom;
 import Rooms.ConferenceRoom;
 import Rooms.DiningRoom;
@@ -54,5 +55,47 @@ public class Hotel {
             }
         }
         return null;
+    }
+
+    public void checkGuestIntoBedroom(Guest guest, int roomNumber) {
+        for (Bedroom bedroom : bedrooms) {
+            if (roomNumber == bedroom.getRoomNumber() && !bedroom.isRoomFull()) {
+                bedroom.addGuest(guest);
+            }
+        }
+    }
+
+    public void checkGuestIntoConferenceRoom(Guest guest, String name) {
+        for (ConferenceRoom conferenceRoom : conferenceRooms) {
+            if (name.equals(conferenceRoom.getName()) && !conferenceRoom.isRoomFull()) {
+                conferenceRoom.addGuest(guest);
+            }
+        }
+    }
+
+    public void checkGuestIntoDiningRoom(Guest guest, String name) {
+        for (DiningRoom diningRoom : diningRooms) {
+            if (name.equals(diningRoom.getName()) && !diningRoom.isRoomFull()) {
+                diningRoom.addGuest(guest);
+            }
+        }
+    }
+
+    public void checkGuestOut(Guest guest) {
+        for (Bedroom bedroom : bedrooms) {
+            if (bedroom.getGuests().contains(guest)) {
+                bedroom.removeGuest(guest);
+            }
+        }
+        for (ConferenceRoom conferenceRoom : conferenceRooms) {
+            if (conferenceRoom.getGuests().contains(guest)) {
+                conferenceRoom.removeGuest(guest);
+            }
+        }
+        for (DiningRoom diningRoom : diningRooms) {
+            if (diningRoom.getGuests().contains(guest)) {
+                diningRoom.removeGuest(guest);
+            }
+        }
     }
 }

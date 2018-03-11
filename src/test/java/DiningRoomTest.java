@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class DiningRoomTest {
     DiningRoom diningRoom;
@@ -50,5 +51,14 @@ public class DiningRoomTest {
     @Test
     public void canGetRoomName() {
         assertEquals("Blackbird", diningRoom.getName());
+    }
+
+    @Test
+    public void roomIsFull() {
+        for (int i = 0; i < 50; i++) {
+            diningRoom.addGuest(guest);
+        }
+        assertEquals(50, diningRoom.guestCount());
+        assertTrue(diningRoom.isRoomFull());
     }
 }
